@@ -21,7 +21,7 @@ export const CircuitPreview = ({ readonly, data, onClick, onDelete }: CircuitPre
         {/* Don't show 'x' if readonly */}
         {!readonly &&
         (<span className="circuit__preview__controls">
-            <img className="circuit_options" width="20px" src="img/icons/close.svg"
+            <img className="circuit_options" width="20px" src="/moodle-develop/question/type/digitalcircuit/img/icons/close.svg"
                  title="Delete Circuit" alt="X to delete"
                  onClick={(e) => { e.stopPropagation(); onDelete(); }} />
         </span>)}

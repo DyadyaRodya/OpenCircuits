@@ -14,7 +14,7 @@ import {SwitchToggle} from "shared/components/SwitchToggle";
 
 import {Dropdown} from "../Dropdown";
 
-import {AutoSaveToggle} from "./AutoSaveToggle";
+//import {AutoSaveToggle} from "./AutoSaveToggle";
 
 
 type Props = {
@@ -37,10 +37,10 @@ export const SettingsMenu = ({ helpers, info }: Props) => {
 
     return (
         <Dropdown open={(curMenu === "settings")}
-                  btnInfo={{ title: "User Settings", src: "img/icons/settings.svg" }}
+                  btnInfo={{ title: "User Settings", src: "/moodle-develop/question/type/digitalcircuit/img/icons/settings.svg" }}
                   onClick={() => dispatch(OpenHeaderMenu("settings"))}
                   onClose={() => dispatch(CloseHeaderMenus())}>
-            <AutoSaveToggle helpers={helpers} />
+            {/* <AutoSaveToggle helpers={helpers} /> */}
             {process.env.NODE_ENV === "development" &&
                 (<>
                     <h1>Debug</h1>

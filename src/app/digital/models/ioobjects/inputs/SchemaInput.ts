@@ -1,13 +1,8 @@
-import {serializable} from "serialeazy";
-
-import {V} from "Vector";
-
-import {ClampedValue} from "math/ClampedValue";
-
+import { serializable } from "serialeazy";
+import { V } from "Vector";
+import { ClampedValue } from "math/ClampedValue";
+import { DigitalComponent } from "digital/models/DigitalComponent";
 import {GenPropInfo} from "core/utils/PropInfoUtils";
-
-import {DigitalComponent} from "digital/models/DigitalComponent";
-
 
 const [Info, InitialProps] = GenPropInfo({
     infos: {
@@ -24,14 +19,14 @@ const [Info, InitialProps] = GenPropInfo({
     },
 });
 
-@serializable("Label")
-export class Label extends DigitalComponent {
+@serializable("SchemaInput")
+export class SchemaInput extends DigitalComponent {
     public constructor() {
         super(
             new ClampedValue(0),
-            new ClampedValue(0),
+            new ClampedValue(1),
             V(1.2, 0.6), undefined, undefined,
-            InitialProps,
+            InitialProps
         );
     }
 
@@ -40,8 +35,6 @@ export class Label extends DigitalComponent {
     }
 
     public override getDisplayName(): string {
-        return "LABEL";
+        return "SchemaInput";
     }
 }
-
-

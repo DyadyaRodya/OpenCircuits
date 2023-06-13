@@ -1,11 +1,11 @@
 import React, {createRef}             from "react";
-import ReactDOM                       from "react-dom";
-import ReactGA                        from "react-ga";
+import { createRoot } from 'react-dom/client';
+//import ReactGA                        from "react-ga";
 import {Provider}                     from "react-redux";
 import {applyMiddleware, createStore} from "redux";
 import thunk, {ThunkMiddleware}       from "redux-thunk";
 
-import {DEV_CACHED_CIRCUIT_FILE} from "shared/utils/Constants";
+//import {DEV_CACHED_CIRCUIT_FILE} from "shared/utils/Constants";
 
 import {Images} from "core/utils/Images";
 
@@ -34,17 +34,17 @@ import {UndoHandler}          from "core/tools/handlers/UndoHandler";
 
 import "digital/models/ioobjects";
 
-import {GetCookie}     from "shared/utils/Cookies";
+//import {GetCookie}     from "shared/utils/Cookies";
 import {LoadingScreen} from "shared/utils/LoadingScreen";
 
-import {DevGetFile, DevListFiles} from "shared/api/Dev";
+//import {DevGetFile, DevListFiles, ProdGetFile} from "shared/api/Dev";
 
 
-import {NoAuthState} from "shared/api/auth/NoAuthState";
+//import {NoAuthState} from "shared/api/auth/NoAuthState";
 
 import {SetCircuitSaved} from "shared/state/CircuitInfo";
 
-import {Login} from "shared/state/thunks/User";
+//import {Login} from "shared/state/thunks/User";
 
 import {App}                from "./containers/App";
 import {AppState, AppStore} from "./state";
@@ -56,7 +56,7 @@ import {DigitalPaste}       from "./utils/DigitalPaste";
 import ImageFiles from "./data/images.json";
 
 
-async function Init(): Promise<void> {
+async function runApp(): Promise<void> {
     const startPercent = 30;
     let store: AppStore;
 
@@ -69,7 +69,7 @@ async function Init(): Promise<void> {
             store = createStore(reducers, applyMiddleware(thunk as ThunkMiddleware<AppState, AllActions>));
         }],
 
-        [95, "Initializing Authentication", async () => {
+        /* [95, "Initializing Authentication", async () => {
             const AuthMethods: Record<string, () => Promise<void>> = {
                 "no_auth": async () => {
                     const username = GetCookie("no_auth_username");
@@ -115,8 +115,8 @@ async function Init(): Promise<void> {
             } catch (e) {
                 console.error(e);
             }
-        }],
-        [99, "Google Analytics", async () => {
+        }], */
+        /* [99, "Google Analytics", async () => {
             try {
                 if (!process.env.OC_GA_ID)
                     throw new Error("Can't find Google Analytics ID");
@@ -125,7 +125,7 @@ async function Init(): Promise<void> {
             } catch (e) {
                 console.error("Failed to connect with Google Analytics:", e);
             }
-        }],
+        }], */
         [100, "Rendering", async () => {
             // Setup
             const canvas = createRef<HTMLCanvasElement>();
@@ -150,23 +150,33 @@ async function Init(): Promise<void> {
                 store.dispatch(SetCircuitSaved(false));
             });
 
-            if (process.env.NODE_ENV === "development") {
+            /* if (process.env.NODE_ENV === "development") {
                 // Load dev state
                 const files = await DevListFiles();
                 if (files.includes(DEV_CACHED_CIRCUIT_FILE))
                     await helpers.LoadCircuit(() => DevGetFile(DEV_CACHED_CIRCUIT_FILE));
-            }
+            } */
+            // TODO ProdGetFile or better just insert in input and change DevGetFile for that reads from input.value LoadCircuit
 
-            ReactDOM.render(
+            const rootElement  = document.getElementById("digitalCircuitryDesignerRoot");
+            if (!rootElement) return;
+            const root = createRoot(rootElement);
+            const inputId = rootElement?.dataset.inputid;
+            const inputField: any = inputId ? document.getElementById(inputId) : null;
+            if(!!inputField.value){
+                await helpers.LoadCircuit(() => {return inputField.value;});
+            }
+            const buttonRootElement = document.getElementById("openEditorButtonPlace");
+            if (!buttonRootElement) return;
+            root.render(
                 <React.StrictMode>
                     <Provider store={store}>
-                        <App info={info} helpers={helpers} canvas={canvas} />
+                        <App info={info} helpers={helpers} canvas={canvas} inputField={inputField} buttonRootElement={buttonRootElement}/>
                     </Provider>
-                </React.StrictMode>,
-                document.getElementById("root")
+                </React.StrictMode> 
             );
         }],
     ]);
 }
 
-Init();
+runApp();

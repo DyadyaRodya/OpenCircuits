@@ -48,12 +48,12 @@ function GetNumInputsAndOutputs(itemId: string, info: DigitalCircuitInfo): [numb
 }
 
 // List that represents the order of smart place options cycle
-const SmartPlaceOrder = [
+/* const SmartPlaceOrder = [
     SmartPlaceOptions.Off,
     SmartPlaceOptions.Full,
     SmartPlaceOptions.Outputs,
     SmartPlaceOptions.Inputs,
-];
+]; */
 
 type ICID = `ic/${number}`;
 
@@ -70,10 +70,10 @@ export const DigitalItemNav = ({ info }: Props) => {
 
     // Cycle through Smart Place options on Alt key press
     useWindowKeyDownEvent("Alt", () => {
-        setSmartPlace((smartPlace) => SmartPlaceOrder[
+        /* setSmartPlace((smartPlace) => SmartPlaceOrder[
             // Calculate index of current option and find next one in the list
             (SmartPlaceOrder.indexOf(smartPlace) + 1) % SmartPlaceOrder.length]
-        );
+        ); */
     });
 
     useEffect(() => {
@@ -121,7 +121,7 @@ export const DigitalItemNav = ({ info }: Props) => {
                 new Array(numInputs).fill(0).map((_, i) => (
                     // Show the Switches
                     <img key={`digital-itemnav-inputs-${i}`}
-                         src={`/${itemNavConfig.imgRoot}/inputs/switch.svg`}
+                         src={`/moodle-develop/question/type/digitalcircuit/${itemNavConfig.imgRoot}/inputs/switch.svg`}
                          width="80px" height="80px"
                          alt="Switch"
                          style={{
@@ -134,7 +134,7 @@ export const DigitalItemNav = ({ info }: Props) => {
                 new Array(numOutputs).fill(0).map((_, i) => (
                     // Show the LEDs
                     <img key={`digital-itemnav-outputs-${i}`}
-                         src={`/${itemNavConfig.imgRoot}/outputs/led.svg`}
+                         src={`/moodle-develop/question/type/digitalcircuit/${itemNavConfig.imgRoot}/outputs/led.svg`}
                          width="80px" height="80px"
                          alt="Switch"
                          style={{
@@ -162,7 +162,7 @@ export const DigitalItemNav = ({ info }: Props) => {
         const item = section?.items.find((i) => (i.id === id));
 
         return `${config.imgRoot}/${section?.id}/${item?.icon}`;
-    }, [config.imgRoot, config.sections, designer]);
+    }, ["/moodle-develop/question/type/digitalcircuit/"+config.imgRoot, config.sections, designer]);
 
     const onSmartPlaceOff = useCallback(() => setSmartPlace(SmartPlaceOptions.Off), [setSmartPlace]);
 

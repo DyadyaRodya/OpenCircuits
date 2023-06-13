@@ -105,7 +105,7 @@ export const ImageExporterPreview = (() => {
         }, [isActive, mainInfo]);
 
         return (<>
-            <img src="img/icons/fitscreen.svg"
+            <img src="/moodle-develop/question/type/digitalcircuit/img/icons/fitscreen.svg"
                  className="image-exporter-preview__button"
                  alt="Fit to screen"
                  onClick={() => {

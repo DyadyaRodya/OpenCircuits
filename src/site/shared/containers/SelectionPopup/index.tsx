@@ -17,10 +17,10 @@ import "./index.scss";
 
 type Props = {
     info: CircuitInfo;
-    docsUrlConfig: Record<string, string>;
+    //docsUrlConfig: Record<string, string>;
     children: React.ReactNode;
 }
-export const SelectionPopup = ({ info, docsUrlConfig, children }: Props) => {
+export const SelectionPopup = ({ info, /* docsUrlConfig, */ children }: Props) => {
     const { input, camera, history, selections } = info;
 
     const itemNavCurItem = useSharedSelector((state) => state.itemNav.curItemID);
@@ -92,7 +92,7 @@ export const SelectionPopup = ({ info, docsUrlConfig, children }: Props) => {
         pos.y = Clamp(pos.y, height/2, window.innerHeight - HEADER_HEIGHT - height/2);
     }
 
-    const infoLink = (id in docsUrlConfig ? docsUrlConfig[id as keyof typeof docsUrlConfig] : undefined);
+    //const infoLink = (id in docsUrlConfig ? docsUrlConfig[id as keyof typeof docsUrlConfig] : undefined);
 
     return (
         <div ref={popup}
@@ -108,8 +108,8 @@ export const SelectionPopup = ({ info, docsUrlConfig, children }: Props) => {
              }}>
             {id && (<div className="info-button">
                 <div>{id}</div>
-                <a href={infoLink} target="_blank" rel="noopener noreferrer"
-                   title="Click for component information">?</a>
+                {/* <a href={infoLink} target="_blank" rel="noopener noreferrer"
+                   title="Click for component information">?</a> */}
             </div>)}
             <TitleModule info={info}  />
             <hr />

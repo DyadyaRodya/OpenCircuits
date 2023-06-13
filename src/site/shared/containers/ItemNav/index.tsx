@@ -276,7 +276,7 @@ export const ItemNav = <D,>({ info, config, additionalData, getImgSrc, onDelete,
                         else
                             dispatch(OpenHistoryBox());
                     }}>
-                        <img src="img/icons/history.svg" alt="Toggle history box"></img>
+                        <img src="/moodle-develop/question/type/digitalcircuit/img/icons/history.svg" alt="Toggle history box"></img>
                     </button>
                 </div>
                 <div>
@@ -288,7 +288,7 @@ export const ItemNav = <D,>({ info, config, additionalData, getImgSrc, onDelete,
                                     info.history.undo();
                                     info.renderer.render(); // Re-render
                                 }}>
-                            <img src="img/icons/undo.svg" alt="" />
+                            <img src="/moodle-develop/question/type/digitalcircuit/img/icons/undo.svg" alt="" />
                         </button>
                         <button type="button"
                                 title="Redo"
@@ -297,7 +297,7 @@ export const ItemNav = <D,>({ info, config, additionalData, getImgSrc, onDelete,
                                     info.history.redo();
                                     info.renderer.render(); // Re-render
                                 }}>
-                            <img src="img/icons/redo.svg" alt="" />
+                            <img src="/moodle-develop/question/type/digitalcircuit/img/icons/redo.svg" alt="" />
                         </button>
                     </div>
                 </div>
@@ -329,7 +329,7 @@ export const ItemNav = <D,>({ info, config, additionalData, getImgSrc, onDelete,
                                         onClick={(ev) => {
                                             dispatch(SetCurItem(item.id));
                                             setNumClicks(item.id === curItemID ? numClicks+1 : 1);
-                                            setCurItemImg(`/${config.imgRoot}/${section.id}/${item.icon}`);
+                                            setCurItemImg(`/moodle-develop/question/type/digitalcircuit/${config.imgRoot}/${section.id}/${item.icon}`);
                                             onStart && onStart();
 
                                             // Prevents `onClick` listener of placing the component to fire
@@ -342,7 +342,7 @@ export const ItemNav = <D,>({ info, config, additionalData, getImgSrc, onDelete,
                                                 //  Switch, we want to reset the numClicks to 1
                                                 dispatch(SetCurItem(item.id));
                                                 setNumClicks(item.id === curItemID ? numClicks : 0);
-                                                setCurItemImg(`/${config.imgRoot}/${section.id}/${item.icon}`);
+                                                setCurItemImg(`/moodle-develop/question/type/digitalcircuit/${config.imgRoot}/${section.id}/${item.icon}`);
                                                 onStart && onStart();
                                             }
                                         }}
@@ -350,7 +350,7 @@ export const ItemNav = <D,>({ info, config, additionalData, getImgSrc, onDelete,
                                             // Prevents the `touchend` listener of placing the component to fire
                                             ev.stopPropagation();
                                         }}>
-                                        <img src={`/${config.imgRoot}/${section.id}/${item.icon}`} alt={item.label} />
+                                        <img src={`/moodle-develop/question/type/digitalcircuit/${config.imgRoot}/${section.id}/${item.icon}`} alt={item.label} />
                                     </Draggable>
                                     {
                                         (item.removable && hovering === item.id) && (

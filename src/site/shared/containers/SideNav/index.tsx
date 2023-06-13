@@ -1,7 +1,7 @@
-import {CircuitMetadata} from "core/models/CircuitMetadata";
+//import {CircuitMetadata} from "core/models/CircuitMetadata";
 
 import {CircuitInfoHelpers} from "shared/utils/CircuitInfoHelpers";
-import {Request}            from "shared/utils/Request";
+//import {Request}            from "shared/utils/Request";
 
 import {useSharedDispatch, useSharedSelector} from "shared/utils/hooks/useShared";
 
@@ -17,19 +17,19 @@ import {SignInOutButtons} from "shared/containers/Header/Right/SignInOutButtons"
 import "./index.scss";
 
 
-function LoadExampleCircuit(data: CircuitMetadata): Promise<string> {
+/* function LoadExampleCircuit(data: CircuitMetadata): Promise<string> {
     return Request({
         method:  "GET",
         url:     `/examples/${data.getId()}`,
         headers: {},
     });
-}
+} */
 
 type Props = {
     helpers: CircuitInfoHelpers;
-    exampleCircuits: CircuitMetadata[];
+    //exampleCircuits: CircuitMetadata[];
 }
-export const SideNav = ({ helpers, exampleCircuits }: Props) => {
+export const SideNav = ({ helpers, /* exampleCircuits */ }: Props) => {
     const { auth, circuits, isOpen, loading, loadingCircuits } = useSharedSelector(
         (state) => ({ ...state.user, isOpen:          state.sideNav.isOpen,
                     loading:         state.circuit.loading, loadingCircuits: state.user.loading })
@@ -85,12 +85,12 @@ export const SideNav = ({ helpers, exampleCircuits }: Props) => {
                 )}
                 </div>
                 <h4 unselectable="on">Examples</h4>
-                <div>
+                {/* <div>
                     {exampleCircuits.map((example, i) =>
                     (<CircuitPreview key={`sidenav-example-circuit-${i}`}
                                      data={example}
                                      readonly
-                                     onDelete={() => { /* Do nothing */ }}
+                                     onDelete={() => {  }}
                                      onClick={async () => {
                                         if (loading) // Don't load another circuit if already loading
                                             return;
@@ -98,13 +98,13 @@ export const SideNav = ({ helpers, exampleCircuits }: Props) => {
                                         dispatch(ToggleSideNav());
                                     }} />)
                 )}
-                </div>
-                <div className="sidenav__content__footer">
+                </div> */}
+                {/* <div className="sidenav__content__footer">
                     A program made with love by <a href="http://leonmontealeg.re/" target="_blank"
                                                    rel="noopener noreferrer">Leon Montealegre </a>
                     and our great <a href="https://www.github.com/OpenCircuits/OpenCircuits/blob/master/AUTHORS.md"
                                      target="_blank" rel="noopener noreferrer">team</a>
-                </div>
+                </div> */}
             </div>
         </div>
     </>);

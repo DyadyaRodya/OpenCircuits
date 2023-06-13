@@ -76,7 +76,9 @@ export class DigitalWire extends Wire {
     }
 
     public override getDisplayColor(): string {
-        return (this.getInput()?.getIsOn() ? DEFAULT_ON_COLOR : super.getDisplayColor());
+        return super.getDisplayColor();
+        // TODO can add possibility to work
+        //return (this.getInput()?.getIsOn() ? DEFAULT_ON_COLOR : super.getDisplayColor());
     }
 
     public getIsOn(): boolean {

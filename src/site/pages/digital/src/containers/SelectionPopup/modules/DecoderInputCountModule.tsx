@@ -4,7 +4,7 @@ import {GroupAction} from "core/actions/GroupAction";
 
 import {SetCoderPortCount} from "digital/actions/compositions/SetCoderPortCount";
 
-import {Decoder} from "digital/models/ioobjects";
+//import {Decoder} from "digital/models/ioobjects";
 
 import {useSelectionProps} from "shared/containers/SelectionPopup/modules/useSelectionProps";
 
@@ -17,16 +17,16 @@ type Props = {
 export const DecoderInputCountModule = ({ info }: Props) => {
     const { history, renderer } = info;
 
-    const [props, cs] = useSelectionProps(
+    /* const [props, cs] = useSelectionProps(
         info,
         (c): c is Decoder => (c instanceof Decoder),
         (c) => ({ numInputs: c.getInputPortCount().getValue() })
-    );
+    ); */
 
-    if (!props)
+    //if (!props)
         return null;
 
-    return (<div>
+    /* return (<div>
         Input Count
         <label>
             <NumberModuleInputField
@@ -44,5 +44,5 @@ export const DecoderInputCountModule = ({ info }: Props) => {
                         history.add(action);
                 }} />
         </label>
-    </div>);
+    </div>) */;
 }

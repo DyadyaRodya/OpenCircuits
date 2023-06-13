@@ -30,13 +30,13 @@ export const DownloadMenuDropdown = ({ helpers: { GetSerializedCircuit } }: Prop
 
     return (
         <Dropdown open={(curMenu === "download")}
-                  btnInfo={{ title: "Download current scene", src: "img/icons/download.svg" }}
+                  btnInfo={{ title: "Download current scene", src: "/moodle-develop/question/type/digitalcircuit/img/icons/download.svg" }}
                   onClick={() => dispatch(OpenHeaderMenu("download"))}
                   onClose={() => dispatch(CloseHeaderMenus())}>
             <div role="button" tabIndex={0}
                  title="Download circuit locally"
                  onClick={onDownloadClick}>
-                <img src="img/icons/download.svg" height="100%" alt="Download current scene" />
+                <img src="/moodle-develop/question/type/digitalcircuit/img/icons/download.svg" height="100%" alt="Download current scene" />
                 <span>Download</span>
             </div>
             <div role="button" tabIndex={0}
@@ -45,7 +45,7 @@ export const DownloadMenuDropdown = ({ helpers: { GetSerializedCircuit } }: Prop
                     dispatch(CloseHeaderMenus());
                     dispatch(OpenHeaderPopup("image_exporter"));
                 }}>
-                <img src="img/icons/png_download.svg" height="100%" alt="Export current scene as an image" />
+                <img src="/moodle-develop/question/type/digitalcircuit/img/icons/png_download.svg" height="100%" alt="Export current scene as an image" />
                 <span>Export Image</span>
             </div>
         </Dropdown>

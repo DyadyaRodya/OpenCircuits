@@ -28,3 +28,11 @@ export async function DevGetFile(fileId: string): Promise<string> {
         headers: {},
     });
 }
+
+export async function ProdGetFile(filepath: string): Promise<string> {
+    return await Request({
+        method:  "GET",
+        url:     filepath,
+        headers: {},
+    });
+}

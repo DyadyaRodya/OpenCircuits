@@ -19,7 +19,7 @@ import {CullableObject} from "core/models";
 
 import {DigitalCircuitInfo} from "digital/utils/DigitalCircuitInfo";
 
-import {Button, Switch} from "digital/models/ioobjects/inputs";
+//import {Button, Switch} from "digital/models/ioobjects/inputs";
 
 import {useKeyDownEvent} from "shared/utils/hooks/useKeyDownEvent";
 import {useWindowSize}   from "shared/utils/hooks/useWindowSize";
@@ -44,13 +44,13 @@ function CheckForInteraction(ev: Event, { toolManager, camera, designer, input, 
             .find((p) => isPressable(p) && p.isWithinPressBounds(worldMousePos));
 
         // Check if Switch was clicked
-        if (obj instanceof Switch && ev.type === "click")
-            return true;
+        /* if (obj instanceof Switch && ev.type === "click")
+            return true; */
 
         // Or if Button was pressed/released
-        if (currentlyPressedObject === obj && obj instanceof Button
+        /* if (currentlyPressedObject === obj && obj instanceof Button
                  && (ev.type === "mousedown" || ev.type === "mouseup"))
-            return true;
+            return true; */
     }
     return false;
 }
@@ -80,11 +80,11 @@ export const ICViewer = (() => {
                 return;
             // loop through all the inputs for this IC
             //  set their input value to be what the info.designer has for their input
-            const viewerInputs = info.designer.getObjects().filter(
+            /* const viewerInputs = info.designer.getObjects().filter(
                 (input) => [Switch, Button].some((type) => input instanceof type)
             );
             for (let i = 0; i < viewerInputs.length; ++i)
-                viewerInputs[i].activate(ic.getInputPort(i).getIsOn());
+                viewerInputs[i].activate(ic.getInputPort(i).getIsOn()); */
         }, [ic]);
 
         // On resize (useLayoutEffect happens sychronously so

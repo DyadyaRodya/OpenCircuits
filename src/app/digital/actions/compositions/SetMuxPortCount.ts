@@ -6,7 +6,7 @@ import {SetInputPortCount}  from "digital/actions/units/SetInputPortCount";
 import {SetOutputPortCount} from "digital/actions/units/SetOutputPortCount";
 import {SetSelectPortCount} from "digital/actions/units/SetSelectPortCount";
 
-import {Multiplexer} from "digital/models/ioobjects";
+//import {Multiplexer} from "digital/models/ioobjects";
 
 import {Mux} from "digital/models/ioobjects/other/Mux";
 
@@ -25,8 +25,8 @@ import {Mux} from "digital/models/ioobjects/other/Mux";
 export function SetMuxPortCount(obj: Mux, target: number) {
     return new GroupAction([
         SetSelectPortCount(obj, target),
-        (obj instanceof Multiplexer
+        (/* obj instanceof Multiplexer
             ?  SetInputPortCount(obj, Math.pow(2, target))
-            : SetOutputPortCount(obj, Math.pow(2, target))),
+            : */ SetOutputPortCount(obj, Math.pow(2, target))),
     ]);
 }

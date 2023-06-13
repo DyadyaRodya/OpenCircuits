@@ -21,7 +21,7 @@ const [Info, InitialInfo] = GenPropInfo({
         "color": {
             type:    "color",
             label:   "Color",
-            initial: "#ffffff",
+            initial: "#999999",
         },
     },
 });

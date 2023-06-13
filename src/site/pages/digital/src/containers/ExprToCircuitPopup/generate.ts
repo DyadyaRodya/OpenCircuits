@@ -11,11 +11,11 @@ import {GroupAction} from "core/actions/GroupAction";
 import {AddGroup}    from "core/actions/compositions/AddGroup";
 import {DeleteGroup} from "core/actions/compositions/DeleteGroup";
 
-import {Connect}                          from "core/actions/units/Connect";
+//import {Connect}                          from "core/actions/units/Connect";
 import {Place}                            from "core/actions/units/Place";
 import {DeselectAll, Select, SelectGroup} from "core/actions/units/Select";
 import {SetName}                          from "core/actions/units/SetName";
-import {SetProperty}                      from "core/actions/units/SetProperty";
+//import {SetProperty}                      from "core/actions/units/SetProperty";
 import {Translate}                        from "core/actions/units/Translate";
 
 import {DigitalCircuitInfo}  from "digital/utils/DigitalCircuitInfo";
@@ -24,11 +24,11 @@ import {ExpressionToCircuit} from "digital/utils/ExpressionParser";
 import {GenerateTokens} from "digital/utils/ExpressionParser/GenerateTokens";
 
 import {AddICData}         from "digital/actions/units/AddICData";
-import {SetInputPortCount} from "digital/actions/units/SetInputPortCount";
+//import {SetInputPortCount} from "digital/actions/units/SetInputPortCount";
 
 import {DigitalCircuitDesigner, DigitalComponent, DigitalObjectSet} from "digital/models";
 
-import {Clock, IC, ICData, Label} from "digital/models/ioobjects";
+import {/* Clock, */ IC, ICData, Label} from "digital/models/ioobjects";
 
 
 export type ExprToCirGeneratorOptions = {
@@ -68,7 +68,7 @@ function addLabels(inputMap: Map<string, DigitalComponent>, action: GroupAction,
     }
 }
 
-function setClocks(inputMap: Map<string, Clock>, action: GroupAction, options: ExprToCirGeneratorOptions,
+/* function setClocks(inputMap: Map<string, Clock>, action: GroupAction, options: ExprToCirGeneratorOptions,
     o: DigitalComponent, designer: DigitalCircuitDesigner) {
     let inIndex = 0;
     // Set clock frequencies
@@ -87,7 +87,7 @@ function setClocks(inputMap: Map<string, Clock>, action: GroupAction, options: E
                 break;
         }
     }
-}
+} */
 
 function handleIC(action: GroupAction, circuitComponents: DigitalComponent[], expression: string,
                   info: DigitalCircuitInfo) {
@@ -150,8 +150,8 @@ export function Generate(info: DigitalCircuitInfo, expression: string,
         addLabels(inputMap, action, circuitComponents, info.designer);
 
     // Set clock frequencies, also connect to oscilloscope if that option is set
-    if (options.input === "Clock")
-        setClocks(inputMap as Map<string, Clock>, action, options, o, info.designer);
+    /* if (options.input === "Clock")
+        setClocks(inputMap as Map<string, Clock>, action, options, o, info.designer); */
 
     if (options.isIC) // If creating as IC
         handleIC(action, circuitComponents, expression, info);

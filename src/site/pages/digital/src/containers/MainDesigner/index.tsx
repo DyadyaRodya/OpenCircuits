@@ -16,7 +16,7 @@ import {useWindowSize}     from "shared/utils/hooks/useWindowSize";
 
 import {Droppable} from "shared/components/DragDroppable/Droppable";
 
-import {DigitalCreateN, SmartPlace, SmartPlaceOptions} from "site/digital/utils/DigitalCreate";
+import {DigitalCreateN/* , SmartPlace, SmartPlaceOptions */} from "site/digital/utils/DigitalCreate";
 import {GetRenderFunc}                                 from "site/digital/utils/Rendering";
 
 import {useDigitalSelector} from "site/digital/utils/hooks/useDigital";
@@ -88,7 +88,7 @@ export const MainDesigner = ({ info, canvas }: Props) => {
     return (
         <Droppable
             ref={canvas}
-            onDrop={(pos, itemId, num, smartPlaceOptions: SmartPlaceOptions) => {
+            onDrop={(pos, itemId, num/* , smartPlaceOptions: SmartPlaceOptions */) => {
                 if (!canvas.current)
                     throw new Error("MainDesigner.Droppable.onDrop failed: canvas.current is null");
                 num = num ?? 1;
@@ -96,13 +96,13 @@ export const MainDesigner = ({ info, canvas }: Props) => {
                     return;
                 pos = info.camera.getWorldPos(pos.sub(V(0, canvas.current.getBoundingClientRect().top)));
 
-                if (smartPlaceOptions !== SmartPlaceOptions.Off) {
+                /* if (smartPlaceOptions !== SmartPlaceOptions.Off) {
                     info.history.add(SmartPlace(pos, itemId, info.designer, num, smartPlaceOptions));
-                } else {
+                } else { */
                     info.history.add(
                         PlaceGroup(info.designer, DigitalCreateN(pos, itemId, info.designer, num))
                     );
-                }
+                /* } */
                 info.renderer.render();
             }}>
             <canvas className="main__canvas"

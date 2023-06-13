@@ -13,7 +13,7 @@ import {PlaceGroup} from "core/actions/units/Place";
 
 import {DigitalCircuitDesigner, DigitalComponent, InputPort, OutputPort} from "digital/models";
 
-import {IC, LED, Switch} from "digital/models/ioobjects";
+import {IC, LED, /* Switch */} from "digital/models/ioobjects";
 
 
 /**
@@ -98,7 +98,7 @@ export enum SmartPlaceOptions {
  * @returns          A GroupAction to place and connect all the components.
  * @throws If the itemId is an invalid item or IC.
  */
-export function SmartPlace(pos: Vector, itemId: string, designer: DigitalCircuitDesigner,
+/* export function SmartPlace(pos: Vector, itemId: string, designer: DigitalCircuitDesigner,
                            N: number, options: SmartPlaceOptions): GroupAction {
     const action = new GroupAction([], "Smart Place Group");
 
@@ -145,5 +145,5 @@ export function SmartPlace(pos: Vector, itemId: string, designer: DigitalCircuit
     }
 
     return action;
-}
+} */
 

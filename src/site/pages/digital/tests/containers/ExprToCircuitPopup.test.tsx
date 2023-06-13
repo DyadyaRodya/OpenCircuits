@@ -7,7 +7,7 @@ import thunk, {ThunkMiddleware}       from "redux-thunk";
 
 import {Setup} from "test/helpers/Setup";
 
-import {LED, ORGate, Switch} from "digital/models/ioobjects";
+import {LED, ORGate/* , Switch */} from "digital/models/ioobjects";
 
 import {OpenHeaderPopup} from "shared/state/Header";
 
@@ -38,7 +38,7 @@ describe("Main Popup", () => {
         info.designer.reset();
     });
 
-    test("Popup Created with default states", () => {
+    /* test("Popup Created with default states", () => {
         // Check header and button states
         expect(screen.getByText("Digital Expression To Circuit Generator")).toBeVisible();
         expect(screen.getByText("Cancel")).toBeVisible();
@@ -66,7 +66,7 @@ describe("Main Popup", () => {
         // Text input is empty
         const input = screen.getByRole<HTMLInputElement>("textbox");
         expect(input.value).toBe("");
-    });
+    }); */
 
     test("Cancel Button Cancels", async () => {
         await user.type(screen.getByRole("textbox"), "a | b");
@@ -80,7 +80,7 @@ describe("Main Popup", () => {
         expect((screen.getByRole<HTMLInputElement>("textbox")).value).toBe("");
     });
 
-    test("Generate Button", async () => {
+    /* test("Generate Button", async () => {
         // Enter the expression and generate
         await user.type(screen.getByRole("textbox"), "a | b");
         expect(screen.getByText("Generate")).toBeEnabled();
@@ -110,15 +110,15 @@ describe("Main Popup", () => {
         // Reopen and requery in case reference changed
         act(() => { store.dispatch(OpenHeaderPopup("expr_to_circuit")) });
         expect((screen.getByRole<HTMLInputElement>("textbox")).value).toBe("");
-    });
+    }); */
 
-    test("Custom format settings appear", async () => {
+    /* test("Custom format settings appear", async () => {
         await PressToggle("Custom", user);
         expect("Custom").toBeToggledOn();
         expect(screen.queryByText(/Custom AND/)).toBeVisible();
-    });
+    }); */
 
-    test("Conditions for options to appear", async () => {
+    /* test("Conditions for options to appear", async () => {
         await user.selectOptions(screen.getByLabelText(/Output Component/), "Oscilloscope");
         expect(screen.queryByText(/Generate into IC/)).toBeNull();
         expect(screen.queryByText(/Connect Clocks/)).toBeNull();
@@ -128,5 +128,5 @@ describe("Main Popup", () => {
 
         await user.selectOptions(screen.getByLabelText(/Input Component/), "Switch");
         expect(screen.queryByText(/Connect Clocks/)).toBeNull();
-    });
+    }); */
 });

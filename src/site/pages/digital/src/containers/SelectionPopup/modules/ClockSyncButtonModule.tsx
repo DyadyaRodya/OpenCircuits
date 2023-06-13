@@ -1,6 +1,6 @@
 import {CircuitInfo} from "core/utils/CircuitInfo";
 
-import {Clock} from "digital/models/ioobjects";
+//import {Clock} from "digital/models/ioobjects";
 
 import {useSelectionProps} from "shared/containers/SelectionPopup/modules/useSelectionProps";
 
@@ -11,18 +11,18 @@ type Props = {
 export const ClockSyncButtonModule = ({ info }: Props) => {
     const { renderer } = info;
 
-    const [props, cs, forceUpdate] = useSelectionProps(
+    /* const [props, cs, forceUpdate] = useSelectionProps(
         info,
         (s): s is Clock => (s instanceof Clock),
         (_) => ({ isClock: true }) // Don't really need any props but
                                    //  we need to be able to update the state
-    );
+    ); */
 
     // Show if valid and if there are multiple clocks
-    if (!props || props.isClock.length < 2)
+    //if (!props || props.isClock.length < 2)
         return null;
 
-    return (
+    /* return (
         <button type="button"
                 title="Sychronize start of selected clocks"
                 onClick={() => {
@@ -32,5 +32,5 @@ export const ClockSyncButtonModule = ({ info }: Props) => {
                 }}>
             Sync Clocks
         </button>
-    );
+    ); */
 }

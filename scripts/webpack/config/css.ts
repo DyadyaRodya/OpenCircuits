@@ -55,10 +55,10 @@ export default ({ isProd, publicPath }: Config): Configuration => ({
     },
 
     plugins: [
-        new MiniCssExtractPlugin(isProd ? {
+        new MiniCssExtractPlugin(/* isProd ? {
             // Extract the css to /static/css/
             filename:      "static/css/[name].[contenthash:8].css",
             chunkFilename: "static/css/[name].[contenthash:8].chunk.css",
-        } : undefined),
+        } : undefined */),
     ],
 });

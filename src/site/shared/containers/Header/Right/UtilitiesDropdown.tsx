@@ -39,7 +39,7 @@ export const UtilitiesDropdown = ({ helpers, extraUtilities }: Props) => {
 
     return (
         <Dropdown open={(curMenu === "utilities")}
-                  btnInfo={{ title: "Utilities", src: "img/icons/utilities.svg" }}
+                  btnInfo={{ title: "Utilities", src: "/moodle-develop/question/type/digitalcircuit/img/icons/utilities.svg" }}
                   onClick={() => dispatch(OpenHeaderMenu("utilities"))}
                   onClose={() => dispatch(CloseHeaderMenus())}>
             {extraUtilities.map((utility) => (
@@ -65,7 +65,7 @@ export const UtilitiesDropdown = ({ helpers, extraUtilities }: Props) => {
                         await DevCreateFile(helpers.GetSerializedCircuit(), DEV_CACHED_CIRCUIT_FILE);
                         setEnableReload(true);
                      }}>
-                    <img src="img/icons/bool_expr_input_icon.svg" height="100%" alt="Cache Circuit Icon" />
+                    <img src="/moodle-develop/question/type/digitalcircuit/img/icons/bool_expr_input_icon.svg" height="100%" alt="Cache Circuit Icon" />
                     <span>Cache Circuit</span>
                 </div>
                 {enableReload && (
@@ -74,7 +74,7 @@ export const UtilitiesDropdown = ({ helpers, extraUtilities }: Props) => {
                             dispatch(CloseHeaderMenus());
                             helpers.LoadCircuit(() => DevGetFile(DEV_CACHED_CIRCUIT_FILE));
                          }}>
-                        <img src="img/icons/bool_expr_input_icon.svg" height="100%" alt="Reload Circuit Icon" />
+                        <img src="/moodle-develop/question/type/digitalcircuit/img/icons/bool_expr_input_icon.svg" height="100%" alt="Reload Circuit Icon" />
                         <span>Reload Circuit</span>
                     </div>
                 )}

@@ -1,8 +1,8 @@
-import {CircuitInfo} from "core/utils/CircuitInfo";
+//import {CircuitInfo} from "core/utils/CircuitInfo";
 
 import {CircuitInfoHelpers} from "shared/utils/CircuitInfoHelpers";
 
-import {Utility} from "shared/containers/Header/Right/UtilitiesDropdown";
+//import {Utility} from "shared/containers/Header/Right/UtilitiesDropdown";
 
 import {HeaderLeft}  from "./Left";
 import {HeaderRight} from "./Right";
@@ -14,25 +14,15 @@ import "./index.scss";
 type Props = {
     img: string;
     helpers: CircuitInfoHelpers;
-    info: CircuitInfo;
-    extraUtilities: Utility[];
+/*     info: CircuitInfo;
+    extraUtilities: Utility[]; */
+    closeModal: CallableFunction;
 }
-export const Header = ({ img, helpers, info, extraUtilities }: Props) => (
+export const Header = ({ closeModal, helpers/* , info, extraUtilities */ }: Props) => (
 
     <header id="header">
-        <HeaderLeft helpers={helpers} />
+        <HeaderLeft helpers={helpers} closeModal={closeModal}/>
 
-        <div className="header__center">
-            <a href="/" target="_blank">
-                <img className="header__center__logo" src={img}
-                     width="200px" height="100%" alt="OpenCircuits logo" />
-            </a>
-            <a href="https://github.com/OpenCircuits/OpenCircuits/" rel="noreferrer" target="_blank">
-                <img className="header__center__github" src="img/icons/github.svg"
-                     width="40px" height="40px" alt="GitHub logo" />
-            </a>
-        </div>
-
-        <HeaderRight helpers={helpers} info={info} extraUtilities={extraUtilities} />
+        <HeaderRight helpers={helpers} /* info={info} extraUtilities={extraUtilities} */ />
     </header>
 );

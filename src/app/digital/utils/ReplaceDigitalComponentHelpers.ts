@@ -1,13 +1,13 @@
 import {Create, GetIDFor} from "serialeazy";
 
 import {SetCoderPortCount} from "digital/actions/compositions/SetCoderPortCount";
-import {SetMuxPortCount}   from "digital/actions/compositions/SetMuxPortCount";
+//import {SetMuxPortCount}   from "digital/actions/compositions/SetMuxPortCount";
 
 import {SetInputPortCount} from "digital/actions/units/SetInputPortCount";
 
 import {DigitalCircuitDesigner, DigitalComponent, InputPort, OutputPort} from "digital/models";
 
-import {Decoder, Encoder, IC} from "digital/models/ioobjects";
+import {/* Decoder, Encoder, */ IC} from "digital/models/ioobjects";
 
 import {Mux} from "digital/models/ioobjects/other/Mux";
 
@@ -46,10 +46,10 @@ export function GetDigitalIDFor(comp: DigitalComponent, designer: DigitalCircuit
 }
 
 export function GetPortChangeAction(comp: DigitalComponent, amt: number) {
-    if (comp instanceof Mux)
+    /* if (comp instanceof Mux)
         return SetMuxPortCount(comp, amt);
     if (comp instanceof Encoder || comp instanceof Decoder)
-        return SetCoderPortCount(comp, amt);
+        return SetCoderPortCount(comp, amt); */
     return SetInputPortCount(comp, amt);
 }
 
@@ -62,10 +62,10 @@ export function GenerateReplacementList(designer: DigitalCircuitDesigner, allCom
             throw new Error(`Can't find component w/ ID: ${id}`);
 
         const count = (() => {
-            if (comp instanceof Mux)
+            /* if (comp instanceof Mux)
                 return comp.getSelectPortCount();
             if (comp instanceof Encoder)
-                return comp.getOutputPortCount();
+                return comp.getOutputPortCount(); */
             return comp.getInputPortCount();
         })();
 

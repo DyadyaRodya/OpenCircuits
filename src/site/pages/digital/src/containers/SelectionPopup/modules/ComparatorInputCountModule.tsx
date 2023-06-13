@@ -4,7 +4,7 @@ import {GroupAction} from "core/actions/GroupAction";
 
 import {SetInputPortCount} from "digital/actions/units/SetInputPortCount";
 
-import {Comparator} from "digital/models/ioobjects";
+//import {Comparator} from "digital/models/ioobjects";
 
 import {useSelectionProps} from "shared/containers/SelectionPopup/modules/useSelectionProps";
 
@@ -17,16 +17,16 @@ type Props = {
 export const ComparatorInputCountModule = ({ info }: Props) => {
     const { history, renderer } = info;
 
-    const [props, cs] = useSelectionProps(
+    /* const [props, cs] = useSelectionProps(
         info,
         (c): c is Comparator => (c instanceof Comparator),
         (c) => ({ numInputs: c.getInputPortCount().getValue()/2 })
-    );
+    ); */
 
-    if (!props)
+    //if (!props)
         return null;
 
-    return (<div>
+    /* return (<div>
         Input Count
         <label>
             <NumberModuleInputField
@@ -44,5 +44,5 @@ export const ComparatorInputCountModule = ({ info }: Props) => {
                         history.add(action);
                 }} />
         </label>
-    </div>);
+    </div>) */;
 }

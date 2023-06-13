@@ -20,7 +20,7 @@ export const OpenFileButton = ({ helpers }: Props) => {
                         helpers.LoadCircuit(() => LoadFile(e.target.files![0]))
                     }} />
         <button type="button" title="Open file" onClick={() => fileInput.current?.click()}>
-            <img src="img/icons/open.svg" width="34px" height="34px" alt="Open a file" />
+            <img src="/moodle-develop/question/type/digitalcircuit/img/icons/open.svg" width="34px" height="34px" alt="Open a file" />
         </button>
     </>);
 }

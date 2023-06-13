@@ -18,10 +18,10 @@ export const ButtonToggle = ({ className, isOn, height, disabled, children, onCh
     <div className={`buttontoggle ${disabled ? "disabled" : ""} ${className ?? ""}`}
          role="switch" aria-checked={!disabled && isOn} tabIndex={0}
          style={{ height }} onClick={onChange} {...callbacks}>
-        <img src="img/items/buttonDown.svg"
+        <img src="/moodle-develop/question/type/digitalcircuit/img/items/buttonDown.svg"
              style={{ display: (!disabled && isOn ? "" : "none") }}
              height="100%" alt="Button on" />
-        <img src="img/items/buttonUp.svg"
+        <img src="/moodle-develop/question/type/digitalcircuit/img/items/buttonUp.svg"
              style={{ display: (!disabled && isOn ? "none" : "") }}
              height="100%" alt="Button off" />
         <span>

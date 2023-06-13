@@ -35,7 +35,7 @@ const HistoryEntry = ({ a, isRedo }: HistoryEntryProps) => {
              }}>
             <div className="historybox__entry__header">
                 {a.getCustomInfo &&
-                    (<img src="img/icons/info.svg"
+                    (<img src="/moodle-develop/question/type/digitalcircuit/img/icons/info.svg"
                           height="24px"
                           alt="Display extra info" />)}
                 <span>{a.getName()}</span>
@@ -66,7 +66,7 @@ const GroupActionEntry = ({ g, isRedo }: GroupActionEntryProps) => {
             <div className="historybox__groupentry__header">
                 <div>
                     {g.getCustomInfo() && (
-                        <img src="img/icons/info.svg"
+                        <img src="/moodle-develop/question/type/digitalcircuit/img/icons/info.svg"
                              alt="Display extra info"
                              onClick={(e) => {
                                  // Necessary to stop child entries from displaying

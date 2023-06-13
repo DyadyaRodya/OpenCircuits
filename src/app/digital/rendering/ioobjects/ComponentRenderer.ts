@@ -36,6 +36,8 @@ import {Demultiplexer} from "digital/models/ioobjects/other/Demultiplexer";
 import {Encoder}       from "digital/models/ioobjects/other/Encoder";
 import {IC}            from "digital/models/ioobjects/other/IC";
 import {Label}         from "digital/models/ioobjects/other/Label";
+import {SchemaInput}  from "digital/models/ioobjects/inputs/SchemaInput";
+import {SchemaOutput}  from "digital/models/ioobjects/outputs/SchemaOutput";
 import {Multiplexer}   from "digital/models/ioobjects/other/Multiplexer";
 
 import {LED}            from "digital/models/ioobjects/outputs/LED";
@@ -110,7 +112,7 @@ export const ComponentRenderer = (() => {
 
             // Draw label and set the label's size
             //  TODO: figure out how to get around this
-            if (object instanceof Label) {
+            if (object instanceof Label || object instanceof SchemaInput || object instanceof SchemaOutput) {
                 // Calculate size
                 const width = renderer.getTextWidth(object.getName()) + 0.4;
                 object.setSize(V(width, size.y));

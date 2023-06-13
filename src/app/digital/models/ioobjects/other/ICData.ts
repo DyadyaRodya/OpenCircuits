@@ -19,7 +19,7 @@ import {Port} from "core/models/ports/Port";
 import {DigitalObjectSet} from "digital/models/DigitalObjectSet";
 
 import {Button} from "digital/models/ioobjects/inputs/Button";
-import {Switch} from "digital/models/ioobjects/inputs/Switch";
+//import {Switch} from "digital/models/ioobjects/inputs/Switch";
 
 import {LED}            from "digital/models/ioobjects/outputs/LED";
 import {Oscilloscope}   from "digital/models/ioobjects/outputs/Oscilloscope";
@@ -175,7 +175,7 @@ export class ICData {
         // Move non-whitelisted inputs to regular components list
         //  So that the ports that come out of the IC are useful inputs and not
         //  things like ConstantHigh and ConstantLow which aren't interactive
-        const INPUT_WHITELIST = [Switch, Button];
+        const INPUT_WHITELIST = [/* Switch, */ Button];
         const OUTPUT_WHITELIST = [LED];
         /* eslint-disable space-in-parens */
         const inputs  = copies.getInputs().filter( (i) =>  INPUT_WHITELIST.some((type) => i instanceof type));

@@ -18,10 +18,10 @@ export const SwitchToggle = ({ className, isOn, height, disabled, children, onCh
     <div className={`switchtoggle ${disabled ? "disabled" : ""} ${className ?? ""}`}
          role="switch" aria-checked={!disabled && isOn} tabIndex={0}
          style={{ height }} onClick={onChange} {...callbacks}>
-        <img src="img/items/switchDown.svg"
+        <img src="/moodle-develop/question/type/digitalcircuit/img/items/switchDown.svg"
              style={{ display: (!disabled && isOn ? "" : "none") }}
              height="100%" alt="Switch on" />
-        <img src="img/items/switchUp.svg"
+        <img src="/moodle-develop/question/type/digitalcircuit/img/items/switchUp.svg"
              style={{ display: (!disabled && isOn ? "none" : "") }}
              height="100%" alt="Switch off" />
         <span>

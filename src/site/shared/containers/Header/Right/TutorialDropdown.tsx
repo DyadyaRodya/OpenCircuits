@@ -13,49 +13,49 @@ export const TutorialDropdown = () => {
 
     return (
         <Dropdown open={(curMenu === "tutorial")}
-                  btnInfo={{ title: "Help", src: "img/icons/help.svg" }}
+                  btnInfo={{ title: "Help", src: "/moodle-develop/question/type/digitalcircuit/img/icons/help.svg" }}
                   onClick={() => dispatch(OpenHeaderMenu("tutorial"))}
                   onClose={() => dispatch(CloseHeaderMenus())}>
-            <h1>Tours</h1>
+            {/* <h1>Tours</h1>
             <hr />
             <div className="disabled">
-                <img src="img/icons/tour_general.svg" height="100%" alt="Take a tour of OpenCircuits" />
+                <img src="/moodle-develop/question/type/digitalcircuit/img/icons/tour_general.svg" height="100%" alt="Take a tour of OpenCircuits" />
                 <span>General Tour</span>
             </div>
             <h1>Resources</h1>
-            <hr />
+            <hr /> */}
             <div role="button" tabIndex={0}
                  onClick={() => {
                     dispatch(CloseHeaderMenus());
                     dispatch(OpenHeaderPopup("quick_start"));
                 }}>
-                <img src="img/icons/quick_start.svg" height="100%" alt="Check out our Quick Start guide" />
+                <img src="/moodle-develop/question/type/digitalcircuit/img/icons/quick_start.svg" height="100%" alt="Check out our Quick Start guide" />
                 <span>Quick Start</span>
             </div>
-            <div>
+            {/* <div>
                 <a className="hide-link" target="_blank" href="http://docs.opencircuits.io" rel="noreferrer">
-                    <img src="img/icons/github.svg" height="100%" alt="Check out our Documentation" />
+                    <img src="/moodle-develop/question/type/digitalcircuit/img/icons/github.svg" height="100%" alt="Check out our Documentation" />
                     <span>Documentation</span>
                 </a>
-            </div>
-            <div className="disabled">
-                <img src="img/icons/video_tutorials.svg" height="100%" alt="Check out our Video Tutorials" />
+            </div> */}
+            {/* <div className="disabled">
+                <img src="/moodle-develop/question/type/digitalcircuit/img/icons/video_tutorials.svg" height="100%" alt="Check out our Video Tutorials" />
                 <span>Video Tutorials</span>
             </div>
             <div className="disabled">
-                <img src="img/icons/user_guide.svg" height="100%" alt="Read our User Guide" />
+                <img src="/moodle-develop/question/type/digitalcircuit/img/icons/user_guide.svg" height="100%" alt="Read our User Guide" />
                 <span>OpenCircuits User Guide</span>
             </div>
             <div className="disabled">
-                <img src="img/icons/help_center.svg" height="100%" alt="Check out our Help Center" />
+                <img src="/moodle-develop/question/type/digitalcircuit/img/icons/help_center.svg" height="100%" alt="Check out our Help Center" />
                 <span>Help Center</span>
-            </div>
+            </div> */}
             <div role="button" tabIndex={0}
                  onClick={() => {
                     dispatch(CloseHeaderMenus());
                     dispatch(OpenHeaderPopup("keyboard_shortcuts"));
                 }}>
-                <img src="img/icons/keyboard.svg" height="100%" alt="See our Keyboard Shortcuts" />
+                <img src="/moodle-develop/question/type/digitalcircuit/img/icons/keyboard.svg" height="100%" alt="See our Keyboard Shortcuts" />
                 <span>Keyboard Shortcuts</span>
             </div>
         </Dropdown>
